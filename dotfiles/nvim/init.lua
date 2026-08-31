@@ -52,10 +52,10 @@ vim.pack.add({
     { src = "https://github.com/mikavilpas/yazi.nvim" },
 })
 
-require("nvim-treesitter").install({ "rust", "toml", "lua", "markdown", "wit" })
+require("nvim-treesitter").install({ "rust", "toml", "lua", "markdown", "wit", "nix" })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "rust", "toml", "lua", "markdown", "wit" },
+    pattern = { "rust", "toml", "lua", "markdown", "wit", "nix" },
     callback = function()
         pcall(vim.treesitter.start)
         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
@@ -144,7 +144,7 @@ require("gitsigns").setup({
     },
     current_line_blame = false,
     signcolumn = true,
-    word_diff = true,
+    word_diff = false,
 })
 
 local gs = require("gitsigns")
