@@ -50,6 +50,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.statusline" },
     { src = "https://github.com/nvim-mini/mini.icons" },
     { src = "https://github.com/mikavilpas/yazi.nvim" },
+    { src = "https://github.com/lewis6991/satellite.nvim" },
 })
 
 require("nvim-treesitter").install({ "rust", "toml", "lua", "markdown", "wit", "nix" })
@@ -154,6 +155,27 @@ vim.keymap.set("n", "<leader>hp", gs.preview_hunk_inline)
 vim.keymap.set("n", "<leader>hb", gs.toggle_current_line_blame)
 vim.keymap.set("n", "<leader>hv", "<cmd>Gvdiffsplit<cr>")
 
+require("satellite").setup({
+    current_only = false,
+    winblend = 50,
+    zindex = 40,
+    width = 2,
+    excluded_filetypes = { "TelescopePrompt", "yazi", "help", "qf", "fugitive" },
+    handlers = {
+        cursor     = { enable = true },
+        search     = { enable = true },
+        diagnostic = {
+            enable = true,
+            min_severity = vim.diagnostic.severity.HINT,
+        },
+        gitsigns = {
+            enable = true,
+            signs = { add = "│", change = "│", delete = "-" },
+        },
+        marks    = { enable = true, show_builtins = false },
+        quickfix = { enable = true },
+    },
+})
 require("flash").setup()
 
 vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end)
