@@ -155,6 +155,9 @@
         gh
         pcmanfm
         spotify
+        mangohud
+        gamemode
+        ripgrep
     ];
 
     nixpkgs.config.allowUnfree = true;
