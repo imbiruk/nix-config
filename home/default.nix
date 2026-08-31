@@ -8,8 +8,10 @@
 
     programs.git = {
         enable = true;
-        userName = "imbiruk";
-        userEmail = "birukerjamo@gmail.com";
-        extraConfig.init.defaultBranch = "main";
-  };
+        settings = {
+            user.name = "imbiruk";
+            user.email = "birukerjamo@gmail.com";
+            init.defaultBranch = "main";
+        };
+    };
 }
