@@ -7,6 +7,11 @@ spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/biruk/Pictures/Wallpapers/nixo
 
 input {
     focus-follows-mouse
+
+    mouse {
+        accel-profile "flat"
+        accel-speed 0.0
+    }
 }
 
 output "Samsung Electric Company U32R59x H1AK500000" {
