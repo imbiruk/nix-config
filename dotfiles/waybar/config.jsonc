@@ -1,0 +1,20 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "spacing": 0,
+
+  "modules-left": ["niri/workspaces"],
+  "modules-center": [],
+  "modules-right": ["clock"],
+
+  "niri/workspaces": {
+    "format": "{index}",
+    "on-click": "activate"
+  },
+
+  "clock": {
+    "format": "{:%a %b %d  %I:%M %p}",
+    "tooltip": false
+  }
+}

@@ -1,0 +1,44 @@
+* {
+  font-family: "Iosevka Nerd Font", monospace;
+  font-size: 12px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  transition: none;
+  animation: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background-color: #21202e;
+  color: #908caa;
+}
+
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  color: #908caa;
+  padding: 0 8px;
+  margin: 4px 2px;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+#workspaces button.active {
+  color: #e0def4;
+  background-color: #26233a;
+  border: 1px solid #403d52;
+}
+
+#workspaces button:hover {
+  background-color: #26233a;
+  color: #e0def4;
+}
+
+#clock {
+  color: #e0def4;
+  padding: 0 12px;
+}

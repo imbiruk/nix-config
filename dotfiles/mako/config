@@ -1,0 +1,20 @@
+font=Iosevka Nerd Font Mono:size=11
+background-color=#232136ee
+text-color=#e0def4
+border-color=#44415a
+border-radius=8
+border-size=1
+padding=14
+margin=10
+default-timeout=5000
+anchor=top-right
+width=350
+icon-path=/run/current-system/sw/share/icons/Papirus-Dark:/run/current-system/sw/share/icons/Adwaita
+
+[urgency=low]
+border-color=#393552
+text-color=#908caa
+
+[urgency=critical]
+border-color=#eb6f92
+default-timeout=0

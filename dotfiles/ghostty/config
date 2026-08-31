@@ -1,0 +1,19 @@
+font-family = DankMono Nerd Font Mono
+font-size = 16
+font-thicken = true
+font-synthetic-style = false
+
+theme = Rose Pine
+alpha-blending = linear-corrected
+
+window-padding-x = 6
+window-padding-y = 6
+window-decoration = true
+
+cursor-style = block
+cursor-style-blink = false
+
+confirm-close-surface = false
+
+working-directory = /home/biruk/Projects
+command = /run/current-system/sw/bin/tmux new-session -A -s main
