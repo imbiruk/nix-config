@@ -1,4 +1,4 @@
-font-family = DankMono Nerd Font Mono
+font-family = Iosevka Nerd Font Mono
 font-size = 16
 font-thicken = true
 font-synthetic-style = false
@@ -13,6 +13,7 @@ window-decoration = true
 cursor-style = block
 cursor-style-blink = false
 
+app-notifications = no-clipboard-copy
 confirm-close-surface = false
 
 working-directory = /home/biruk/Projects
