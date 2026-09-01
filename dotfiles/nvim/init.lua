@@ -8,7 +8,6 @@ vim.o.tabstop = 4
 vim.o.signcolumn = "yes"
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.autocomplete = true 
 vim.o.mouse = ""
 
 vim.lsp.config("rust_analyzer", {
@@ -25,6 +24,14 @@ vim.lsp.config("rust_analyzer", {
         ["rust-analyzer"] = {
             cargo = { features = "all" },
             check = { command = "clippy" },
+            completion = {
+                autoimport = { enable = true },
+                callable = { snippets = "fill_arguments" },
+            },
+            import = {
+                granularity = { enforce = true, group = "module" },
+                prefix = "crate",
+            }
         },
     },   
 })
@@ -69,6 +76,15 @@ vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldmethod = "expr"
 vim.o.foldlevel = 99
 
+require("blink.cmp").setup({
+    keymap = { preset = "default" },
+    completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
+        accept = { auto_brackets = { enabled = true } },
+    },
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
+})
+
 require("rose-pine").setup({
     variant = "auto",
     dark_variant = "main",
@@ -109,13 +125,6 @@ require("telescope").setup({
     pickers = {
         find_files = { hidden = true },
     },
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "TelescopePrompt",
-    callback = function()
-        vim.bo.autocomplete = false
-    end,
 })
 
 local builtin = require("telescope.builtin")
@@ -262,21 +271,3 @@ vim.keymap.set("n", "<C-Down>",  "<cmd>resize -2<cr>")
 vim.keymap.set("n", "<C-Left>",  "<cmd>vertical resize -2<cr>")
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
 
-vim.keymap.set("n", "<leader>lr", function()
-    local name = "rust_analyzer"
-    vim.lsp.enable(name, false)
-    for _, c in ipairs(vim.lsp.get_clients({ name = name })) do
-        c:stop(true)
-    end
-    local tries = 0
-    local timer = assert(vim.uv.new_timer())
-    timer:start(100, 100, vim.schedule_wrap(function()
-        tries = tries + 1
-        if #vim.lsp.get_clients({ name = name }) == 0 or tries > 50 then
-            timer:stop()
-            timer:close()
-            vim.lsp.enable(name)
-            vim.notify("restarted " .. name)
-        end
-    end))
-end)

@@ -158,6 +158,7 @@
         mangohud
         gamemode
         ripgrep
+        vimPlugins.blink-cmp
     ];
 
     nixpkgs.config.allowUnfree = true;

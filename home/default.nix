@@ -14,4 +14,6 @@
             init.defaultBranch = "main";
         };
     };
+    xdg.dataFile."nvim/site/pack/nix/start/blink-cmp".source =
+  "${pkgs.vimPlugins.blink-cmp}";
 }
